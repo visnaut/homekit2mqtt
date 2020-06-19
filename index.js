@@ -476,7 +476,7 @@ if (config.disableWeb) {
     });
 
     app.listen(config.webPort, config.webHost, () => {
-        log.info('http server listening on host:', config.webHost, 'port:', config.webPort);
+        log.info('http server listening on host:', server.address().address, 'port:', server.address().port);
     });
 
     app.use(basicAuth({
