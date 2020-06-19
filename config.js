@@ -1,5 +1,6 @@
 const path = require('path');
 const config = require('yargs')
+    .env('HOMEKIT2MQTT_ENV_PREFIX' in process.env ? process.env.NEST2MQTT_ENV_PREFIX : "HOMEKIT2MQTT")
     .usage('Usage: $0 [options]')
     .describe('v', 'possible values: "error", "warn", "info", "debug"')
     .describe('m', 'JSON file containing HomeKit Services to MQTT mapping definitions. See Readme.')
@@ -28,6 +29,7 @@ const config = require('yargs')
         p: 'port',
         s: 'storagedir',
         w: 'web-port',
+        o: 'web-host',
         x: 'disable-web'
     })
     .default({
@@ -39,7 +41,8 @@ const config = require('yargs')
         a: 'CC:22:3D:E3:CE:F6',
         b: 'MQTT Bridge',
         p: 51826,
-        w: 51888
+        w: 51888,
+        o: '0.0.0.0'
     })
     // .config('config')
     .version()

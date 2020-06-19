@@ -475,7 +475,7 @@ if (config.disableWeb) {
         }
     });
 
-    app.listen(config.webPort, () => {
+    app.listen(config.webPort, config.webHost, () => {
         log.info('http server listening on port', config.webPort);
     });
 
